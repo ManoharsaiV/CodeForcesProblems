@@ -1,5 +1,13 @@
 package com.problemset;
 
+/** This solution would pass through 37 test cases and would fail at the 37th one. That is why I solved it following
+greedy algo approach. */
+
+
+
+
+
+
 import java.util.Scanner;
 
 public class Taxi {
