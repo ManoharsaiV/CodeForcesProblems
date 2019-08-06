@@ -14,7 +14,7 @@ public class cAPSlOCK {
                 if ((int) ch[i] >= 65 && (int) ch[i] <= 90) {
                     count++;
                 } else {
-                    continue;
+                    break;
                 }
             }
             if (count == input.length() - 1) {
@@ -31,7 +31,7 @@ public class cAPSlOCK {
             if ((int) ch[i] >= 65 && (int) ch[i] <= 90) {
                 count++;
             } else {
-                continue;
+                break;
             }
         }
         if (count == input.length()) {
