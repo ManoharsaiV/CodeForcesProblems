@@ -58,6 +58,7 @@ public class IQTest {
             index++;
         }
         System.out.println(returnWeirdIndex(numbers));
+        scanner.close();
 
 
     }
