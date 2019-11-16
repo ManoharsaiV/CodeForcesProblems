@@ -31,22 +31,40 @@ public class BeautifulMatrix {
 
 	}
 
-	public static int costFunc(int[][] mat) {
-		for (int i = 0; i < mat.length; i++) {
-			int count = 0;
-			for (int j = 0; j < mat[0].length; j++) {
-				if(mat[i][j] != 1) {
-					count++;
-				}if(count == mat.length) {
-					continue;
-				}else {
-					
+		public static int costFunc(int[][] mat) {
+			int i = 0, j = 0;
+			int ilocation = -1, jlocation = -1;
+			for (i = 0; i < mat.length; i++) {
+			    j = 0;
+			    if (mat[i][j] == 1) {
+				ilocation = i;
+				jlocation = j;
+				break;
+			    }
+			    for (; j < mat[i].length; j++) {
+				if (mat[i][j] == 1) {
+				    ilocation = i;
+				    jlocation = j;
+				    break;
 				}
+			    }
+			    if (ilocation != -1 && jlocation != -1) {
+				break;
+			    }
+
+
 			}
-		}
-		
 
-		return 0;
-	}
 
+			int steps = 0;
+			steps += (2 > ilocation) ? 2 - ilocation : ilocation - 2;
+			if (jlocation == 2) {
+			    return steps;
+			} else {
+			    steps += (2 > jlocation) ? 2 - jlocation : jlocation - 2;
+			}
+
+
+			return steps;
+		    }
 }
