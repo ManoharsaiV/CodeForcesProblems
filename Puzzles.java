@@ -1,33 +1,10 @@
 package com.problemset;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Puzzles {
-    private static int leastPossibleDifferenceBetweenThePuzzlePieces(int[] puzzlePieces, int n){
-        Arrays.sort(puzzlePieces);
-        List<Integer> li = new ArrayList<>();
-        Arrays.asList(li);
-        int i = 0, j = li.size();
-        while(i < j){
-            if(li.subList(i,j).size() == n){
-            }
-        }
-
-
-
-
-        return 0;
-    }
-
-
-
-
-
-
-
 
 
     public static void main(String[] args) {
@@ -37,11 +14,39 @@ public class Puzzles {
         int m = Integer.parseInt(line1[1]);
         String[] line2 = scan.nextLine().split(" ");
         int[] puzzlePieces = new int[m];
-        for (int i = 0; i < puzzlePieces.length; i++) {
+        for (int i = 0; i < m; i++) {
             puzzlePieces[i] = Integer.parseInt(line2[i]);
         }
-        System.out.println(leastPossibleDifferenceBetweenThePuzzlePieces(puzzlePieces,n));
+        System.out.println(leastDifference(puzzlePieces, n));
         scan.close();
+
+
+    }
+
+
+    public static int leastDifference(int[] arr, int n) {
+        if (arr.length < n) {
+            return -1;
+        }
+        if (arr.length == n) {
+            Arrays.sort(arr);
+            return arr[arr.length - 1] - arr[0];
+        }
+
+
+        Arrays.sort(arr);
+
+        int i = 0, j = i + n - 1;
+        int diff = Integer.MAX_VALUE;
+        while (i <= arr.length - n && j <= arr.length - 1) {
+            if (arr[j] - arr[i] < diff) {
+                diff = arr[j] - arr[i];
+            }
+            i++;
+            j = i + n - 1;
+        }
+
+        return diff;
 
 
     }
